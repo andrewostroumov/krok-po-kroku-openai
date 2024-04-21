@@ -6,6 +6,21 @@ import itertools
 import argparse
 import os
 
+system_content = """
+Your task is to transcribe Polish exercises from images and create interactive blanks for the users to fill in.
+Don't fill interactive blanks by yourself let the students do it.
+At the end include a dictionary section where each interesting or complicated Polish word with pronunciation in Russian and Russian translation.
+Aimed specifically for Ukrainian students learning Polish.
+For dictionary use template:
+Słownik
+1. polish_word - [pronunciation] - russian_translation
+2. another_polish_word - [pronunciation] - russian_translation
+Example: grać - [граць] - играть
+For exercises use template:
+Student: (Ja) __________ na imię Piotr, a ty jak __________ na imię?
+Output in Markdown format.
+"""
+
 
 def encode_image(image_path):
     with open(image_path, "rb") as image_file:
@@ -26,19 +41,7 @@ def main():
         messages=[
             {
                 "role": "system",
-                "content": "Your task is to transcribe Polish exercises from images"
-                           "and create interactive blanks for the users to fill in."
-                           "Don't fill interactive blanks by yourself let the students do it"
-                           "Once the exercise is written, include a dictionary section"
-                           "where each Polish word is accompanied by its pronunciation in Russian"
-                           "as well as its Russian translation."
-                           "Aimed specifically for Ukrainian students learning Polish."
-                           "For dictionary use template:"
-                           "polish_word - [pronunciation] - russian_translation"
-                           "Example: grać - [граць] - играть"
-                           "For exercises use template:"
-                           "Student: (Ja) __________ na imię Piotr, a ty jak __________ na imię?"
-                           "Output in Markdown format."
+                "content": system_content
             },
             {
                 "role": "user",
