@@ -34,10 +34,11 @@ def main():
                            "as well as its Russian translation."
                            "Aimed specifically for Ukrainian students learning Polish."
                            "For dictionary use template:"
-                           "grać - [граць] - играть"
+                           "polish_word - [pronunciation] - russian_translation"
+                           "Example: grać - [граць] - играть"
                            "For exercises use template:"
                            "Student: (Ja) __________ na imię Piotr, a ty jak __________ na imię?"
-                           "You output in Markdown format."
+                           "Output in Markdown format."
             },
             {
                 "role": "user",
